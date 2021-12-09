@@ -13,13 +13,13 @@ class OwnerTest {
         owner.setTelephone("2124569067");
 
         assertAll("Properties Test",
-                () -> assertAll("Person Properties"),
-                        () -> assertEquals("Joe", owner.getFirstName()),
+                () -> assertAll("Person Properties",
+                        () -> assertEquals("Joe", owner.getFirstName(), "First Name Did not Match"),
                         () -> assertEquals("Tester", owner.getLastName())),
                 () -> assertAll("Owner Properties",
-                        () -> assertEquals("Key West", owner.getCity()),
+                        () -> assertEquals("Key West", owner.getCity(), "City Did Not Match"),
                         () -> assertEquals("2124569067", owner.getTelephone())
-                );
+                ));
     }
 
 }
