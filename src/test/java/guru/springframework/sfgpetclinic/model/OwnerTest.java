@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerTest {
 
+    /**
+     * Assertion agains parent and decendent object
+     */
     @Test
     void dependentAssertions() {
         Owner owner = new Owner(1l, "Joe", "Tester");
