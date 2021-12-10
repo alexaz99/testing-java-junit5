@@ -1,6 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -94,6 +95,62 @@ class IndexControllerTest {
 
         // perform these assertions in all environments
         //assertEquals(42, calculator.multiply(6, 7));
+    }
+
+    @EnabledOnOs(OS.MAC)
+    @Test
+    void testMeOnMacOS() {
+        System.out.println("Running on Windows OS");
+    }
+
+    @EnabledOnOs(OS.WINDOWS)
+    @Test
+    void testMeOnWindows() {
+        System.out.println("Running on Windows OS");
+    }
+
+    @EnabledOnJre(JRE.JAVA_8)
+    @Test
+    void testMeOnJava8() {
+
+    }
+
+    @EnabledOnJre(JRE.JAVA_11)
+    @Test
+    void testMeOnJava11() {
+    }
+
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "jt")
+    @Test
+    void testIfUserJT() {
+    }
+
+    @EnabledIfEnvironmentVariable(named = "USER", matches = "fred")
+    @Test
+    void testIfUserFred() {
+    }
+
+    @EnabledIfEnvironmentVariable(named = "ALEX_VAR", matches = "alex")
+    @Test
+    void testIfAlexVar() {
+    }
+
+    @Test // Static JavaScript expression.
+    @EnabledIf("2 * 3 == 6")
+    void willBeExecuted() {
+        // ...
+    }
+
+    @Test // Static JavaScript expression.
+    @EnabledIf("2 * 3 == 7")
+    void willBeNotExecuted() {
+        // ...
+    }
+
+    @RepeatedTest(10) // Dynamic JavaScript expression.
+    @DisabledIf("Math.random() < 0.314159")
+    void mightNotBeExecuted() {
+        // ...
     }
 
 }
