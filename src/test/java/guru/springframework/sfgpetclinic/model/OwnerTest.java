@@ -8,6 +8,7 @@ class OwnerTest {
 
     /**
      * Assertion agains parent and decendent object
+     * Complex test
      */
     @Test
     void dependentAssertions() {
