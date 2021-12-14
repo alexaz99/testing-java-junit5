@@ -12,6 +12,12 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.*;
 
+/**
+ * Example of using Tags.
+ * Tags are used to identify tests and put into the group.
+ * Tags can be applied on the class level or on the test method level.
+ */
+@Tag("controllers")
 class IndexControllerTest {
 
     IndexController controller;

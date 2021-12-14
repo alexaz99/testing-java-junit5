@@ -11,6 +11,7 @@ import guru.springframework.sfgpetclinic.services.map.SpecialityMapService;
 import guru.springframework.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -18,6 +19,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Tag("controllers")
 class VetControllerTest {
 
     VetService vetService;
