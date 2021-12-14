@@ -54,19 +54,10 @@ class VetControllerTest {
 
         Set modelAttribute = (Set) ((ModelMapImpl)model).getMap().get("vets");
 
-        // use assertThat from assertJ framework
+        // use assertThat API from assertJ framework
         assertThat(modelAttribute.size()).isEqualTo(2);
 
+        // use Junit 5 API
         assertEquals(2, modelAttribute.size());
-
-        //assertThat( ((ModelMapImpl)model).getMap().size()).isEqualTo(2);
-
-        /*Set<Vet> vets =  vetService.findAll();
-        assertNotNull(vets);
-        assertEquals(2, vets.size());
-
-        Vet vet1 =  vetService.findById(1L);
-        assertEquals("Bob", vet1.getFirstName());*/
-
     }
 }
