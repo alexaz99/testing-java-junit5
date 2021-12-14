@@ -19,4 +19,8 @@ public class ModelMapImpl implements Model {
     public void addAttribute(Object o) {
         // do nothing
     }
+
+    public Map<String, Object> getMap() {
+        return map;
+    }
 }

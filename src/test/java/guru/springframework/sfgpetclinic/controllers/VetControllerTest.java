@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import guru.springframework.sfgpetclinic.fauxspring.Model;
 import guru.springframework.sfgpetclinic.fauxspring.ModelMapImpl;
 import guru.springframework.sfgpetclinic.model.Vet;
@@ -28,23 +30,41 @@ class VetControllerTest {
         specialtyService = new SpecialityMapService();
         vetService = new VetMapService(specialtyService);
         vetController = new VetController(vetService);
+
+        Vet vet1 = new Vet(1L, "Nick", " Wet", null);
+        Vet vet2 = new Vet(2L, "Bob", " Test", null);
+        vetService.save(vet1);
+        vetService.save(vet2);
     }
 
+    /**
+     * use assertThat from assertJ framework
+     */
     @Test
     void listVets() {
-
         // this is a manual mock object
         Model model = new ModelMapImpl();
 
         String view = vetController.listVets(model);
 
-        Set<Vet> vets =  vetService.findAll();
+        // use assertThat from assertJ framework
+        assertThat("vets/index").isEqualTo(view);
 
+        Set modelAttribute = (Set) ((ModelMapImpl)model).getMap().get("vets");
+
+        // use assertThat from assertJ framework
+        assertThat(modelAttribute.size()).isEqualTo(2);
+
+        assertEquals(2, modelAttribute.size());
+
+        //assertThat( ((ModelMapImpl)model).getMap().size()).isEqualTo(2);
+
+        /*Set<Vet> vets =  vetService.findAll();
         assertNotNull(vets);
         assertEquals(2, vets.size());
 
         Vet vet1 =  vetService.findById(1L);
-        assertEquals("Bob", vet1.getFirstName());
+        assertEquals("Bob", vet1.getFirstName());*/
 
     }
 }
