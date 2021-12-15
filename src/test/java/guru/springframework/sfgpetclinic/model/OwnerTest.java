@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import guru.springframework.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +10,8 @@ import static org.hamcrest.Matchers.is;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("model")
-class OwnerTest {
+//@Tag("model")
+class OwnerTest implements ModelTest {
 
     /**
      * Assertion agains parent and decendent object

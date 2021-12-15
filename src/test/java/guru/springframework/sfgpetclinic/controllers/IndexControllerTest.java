@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import guru.springframework.sfgpetclinic.ControllerTests;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
 
@@ -17,8 +18,8 @@ import static org.junit.jupiter.api.Assumptions.*;
  * Tags are used to identify tests and put into the group.
  * Tags can be applied on the class level or on the test method level.
  */
-@Tag("controllers")
-class IndexControllerTest {
+//@Tag("controllers")
+class IndexControllerTest implements ControllerTests {
 
     IndexController controller;
 
