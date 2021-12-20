@@ -105,6 +105,9 @@
                     <argLine>
                         --illegal-access=permit
                     </argLine>
+                    <!-- Use to run tags tests -->
+                    <!--<groups>controllers</groups>-->
+                    <!--<excludedGroups>controllers</excludedGroups>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -124,6 +127,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
             </plugin>
         </plugins>
     </build>
