@@ -42,10 +42,21 @@ class OwnerTest implements ModelTest {
         assertThat(owner.getCity(), is("Key West"));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"Alex", "Bob", "John"})
+    void testValueSource_Simple(String val) {
+        // output parameters passed from @ValueSource annotation settings
+        System.out.println(val);
+    }
+
     @DisplayName("Value Source Test")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
     @ValueSource(strings = {"Spring", "Framework", "Guru"})
     void testValueSource(String val) {
+        // output parameters passed from @ValueSource annotation settings
+
+        // Running Test - [1] output is coming from ModelTest interface
+        // Alex ModelTest
         System.out.println(val);
     }
 
@@ -56,6 +67,12 @@ class OwnerTest implements ModelTest {
         System.out.println(ownerType);
     }
 
+    /**
+     * Pass CSV input list
+     * @param stateName
+     * @param val1
+     * @param val2
+     */
     @DisplayName("CSV Input Test")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
     @CsvSource({
