@@ -3,18 +3,16 @@ package guru.springframework.sfgpetclinic.model;
 import guru.springframework.sfgpetclinic.CustomArgsProvider;
 import guru.springframework.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
-
 
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@Tag("model")
 class OwnerTest implements ModelTest {
@@ -68,7 +66,9 @@ class OwnerTest implements ModelTest {
     }
 
     /**
-     * Pass CSV input list
+     * Pass CSV input list.
+     * Each row csv value is a string.
+     * Define 3 string.
      * @param stateName
      * @param val1
      * @param val2
@@ -93,7 +93,7 @@ class OwnerTest implements ModelTest {
 
     @DisplayName("Method Provider Test")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
-    @MethodSource("getArgs")
+    @MethodSource("getArgs") // the name of the method
     void fromMethodTest(String stateName, int val1, int val2) {
         System.out.println(stateName + " = " + val1 + ":" + val2);
     }
@@ -107,10 +107,12 @@ class OwnerTest implements ModelTest {
                 Arguments.of("NY", 31, 31));
     }
 
+    // This is a very similar to a method provider static Stream<Arguments> getArgs(),
+    // but we are going to extract it to the class
     @DisplayName("Custom Provider Test")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
     @ArgumentsSource(CustomArgsProvider.class)
-    void fromCustomProvigerTest(String stateName, int val1, int val2) {
+    void fromCustomProviderTest(String stateName, int val1, int val2) {
         System.out.println(stateName + " = " + val1 + ":" + val2);
     }
 
